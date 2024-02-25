@@ -1,0 +1,16 @@
+<!-- <div>
+	<a routerLink="/login">Login</a>
+	<a routerLink="/register">Register</a>
+</div> -->
+<!-- <div>
+	
+</div>  -->
+
+<!-- <a routerLink=""></a> -->
+@if(authService.currentUserSignal()){
+	<div class="logged-in">
+		<h1>We are finally authenticated!!! with user:- {{authService.currentUserSignal()?.username}}</h1>
+		<span (click)="logout()">logout</span>
+	</div>
+}
+<router-outlet></router-outlet>
