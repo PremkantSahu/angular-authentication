@@ -6,4 +6,5 @@ import { UserInterface } from '../interface/user.inteface';
 })
 export class AuthService {
 	currentUserSignal = signal<UserInterface | undefined | null>(undefined)
+    isUserLoggedIn = signal<boolean>(false);
 }

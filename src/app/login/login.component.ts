@@ -30,7 +30,8 @@ export class LoginComponent {
 		}).subscribe((res) => {
 			localStorage.setItem('token', res.user.token);
 			this.authService.currentUserSignal.set(res.user);
-			this.router.navigateByUrl('/')
+			if(res.user) this.authService.isUserLoggedIn.set(true);
+			this.router.navigateByUrl('/');
 		});
 		this.loginForm.reset();
 	}

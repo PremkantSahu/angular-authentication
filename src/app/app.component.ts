@@ -17,16 +17,23 @@ export class AppComponent {
     authService = inject(AuthService);
     http = inject(HttpClient)
     ngOnInit() {
-        this.http.get<{ user: UserInterface }>(API_PATH.getUser).subscribe({
-            next: (res) => {
-                this.authService.currentUserSignal.set(res.user)
-            }, error: (err) => {
-                this.authService.currentUserSignal.set(null);
-            }
-        })
+        this.getUser();
+    }
+    getUser() {
+        if (this.authService.isUserLoggedIn()) {
+            this.http.get<{ user: UserInterface }>(API_PATH.getUser).subscribe(
+                {
+                    next: (res) => {
+                        this.authService.currentUserSignal.set(res.user)
+                    }, error: (err) => {
+                        this.authService.currentUserSignal.set(null);
+                    }
+                }
+            )
+        }
     }
     logout() { 
-        localStorage.setItem('token', '');
+        localStorage.removeItem('token')
         this.authService.currentUserSignal.set(null);
     }
 }
