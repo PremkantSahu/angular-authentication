@@ -1,0 +1,7 @@
+<p>home works!</p>
+@if(authService.currentUserSignal()){
+	<div class="logged-in">
+		<h1>We are finally authenticated!!! with user:- {{authService.currentUserSignal()?.username}}</h1>
+		<button (click)="logout()">logout</button>
+	</div>
+}
