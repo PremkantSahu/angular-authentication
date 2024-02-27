@@ -4,4 +4,9 @@
 		<h1>We are finally authenticated!!! with user:- {{authService.currentUserSignal()?.username}}</h1>
 		<button (click)="logout()">logout</button>
 	</div>
+	<h2 *ngIf="isLoading$ | async">Loading....</h2>
+	<h2 *ngFor="let article of articles$ | async">
+		{{article.title}}
+	</h2>
+	<h2 *ngIf="isError$"> {{isError$ | async}} </h2>
 }

@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { UserInterface } from '../interface/user.inteface';
+import { UserInterface } from '../interface/user.interface';
 
 @Injectable({
   providedIn: 'root'

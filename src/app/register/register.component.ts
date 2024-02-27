@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { API_PATH } from '../shared/api-path';
-import { UserInterface } from '../interface/user.inteface';
+import { UserInterface } from '../interface/user.interface';
 import { AuthService } from '../service/auth.service';
 
 @Component({
